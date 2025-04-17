@@ -94,36 +94,84 @@ console.log(CemberinAlani(15,3.14))
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
 let ucetambolunenler,
-  enkucuk,
-  enbuyuk,
-  ucebolunenlerintoplami,
-  besyuzdenkucuksayilar,
+  enkucuk = sayilar[0];
+  enbuyuk = sayilar[0];
+  ucebolunenlerintoplami = [];
+  besyuzdenkucuksayilar = [];
   siralisayilar,
-  tekraredensayilar;
+  tekraredensayilar = [];
 
 // 3a çözümü
+  
+  for(let i = 0 ; i<sayilar.length ; i++){
+    if(sayilar[i] > enbuyuk){
+      enbuyuk = sayilar[i]
+    }
+    if(sayilar[i]<enkucuk){
+      enkucuk = sayilar[i]
 
-/* kodlar buraya */
+    }
+  }
+  console.log(enkucuk,enkucuk)
+
+
 
 // 3b çözümü:
+sayilar.forEach(function(sayi) {
+  if(sayi % 3 ===0){
+    ucetambolunenler.push(sayi)
+  }
 
-/* kodlar buraya */
+
+
+}); 
+console.log(ucetambolunenler)
+
+
+
+ 
+
 
 // 3c çözümü:
 
-/* kodlar buraya */
+let ucebolunenlerintoplami = ucetambolunenler.reduce((toplam,sayi) => toplam+sayi,0)
 
 // 3d çözümü
 
-/* kodlar buraya */
-
+besyuzdenkucuksayilar = sayilar.filter(function(sayi){
+  return sayi<10;
+});
+  console.log("500'den küçük sayılar:", besyuzdenkucuksayilar)
 // 3e çözümü
 
-/* kodlar buraya */
+siralisayilar = [...besyuzdenkucuksayilar];
+siralisayilar.sort((a,b) => a-b);
+console.log(siralisayilar)
+
 
 // 3f çözümü
 
-/* kodlar buraya */
+let sayac = {};
+sayilar.forEach(sayi => {
+  if(sayac[sayi]){
+    sayac[sayi]++;
+  }else{
+    sayac[sayi] = 1
+  }
+
+
+
+})
+for (let sayi in sayac) {
+  if (sayac[sayi] > 1) {
+    console.log(`${sayi} sayısı ${sayac[sayi]} kez tekrar etti.`);
+    tekraredensayilar.push({
+      sayi: Number(sayi),
+      tekrar: sayac[sayi]
+    });
+  }
+}
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
